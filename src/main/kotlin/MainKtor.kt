@@ -12,7 +12,8 @@ import kotlinx.html.head
 import kotlinx.html.title
 
 fun main() {
-    val server = embeddedServer(Netty,port = 7070){
+    val port = System.getenv("PORT")?.toInt() ?: 8080
+    val server = embeddedServer(Netty,port){
         routing {
             route("/"){
                 get{
